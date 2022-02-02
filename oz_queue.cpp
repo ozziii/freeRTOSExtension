@@ -32,7 +32,7 @@ BaseType_t xReverseSemaphoreWaitForZero(ReverseSemaphoreHandle_t xSemaphore, Tic
 }
 
 
-void xReverseSemaphoreDelete(ReverseSemaphoreHandle_t xSemaphore )
+void vReverseSemaphoreDelete(ReverseSemaphoreHandle_t xSemaphore )
 {
     vEventGroupDelete(xSemaphore);
 }   

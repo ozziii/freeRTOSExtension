@@ -65,6 +65,6 @@ BaseType_t xReverseSemaphoreWaitForZero(ReverseSemaphoreHandle_t xSemaphore, Tic
  * 
  * @param xSemaphore 
  */
-void xReverseSemaphoreDelete(ReverseSemaphoreHandle_t xSemaphore );
+void vReverseSemaphoreDelete(ReverseSemaphoreHandle_t xSemaphore );
 
 #endif
