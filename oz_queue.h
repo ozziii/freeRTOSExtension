@@ -1,7 +1,7 @@
-#ifndef OZ_TASK_H
-#define OZ_TASK_H
+#ifndef OZ_QUEUE_H
+#define OZ_QUEUE_H
 
-#include "FreeRTOS.h"
+#include "freertos/FreeRTOS.h"
 #include "freertos/event_groups.h"
 
 
@@ -56,3 +56,5 @@ BaseType_t xReverseSemaphoreDecrese(ReverseSemaphoreHandle_t xSemaphore );
  * @return BaseType_t 
  */
 BaseType_t xReverseSemaphoreWaitForZero(ReverseSemaphoreHandle_t xSemaphore, TickType_t xTicksToWait);
+
+#endif

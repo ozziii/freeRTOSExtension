@@ -13,8 +13,7 @@ BaseType_t xTaskCreatePinnedToCore_WFH(TaskFunction_t pvTaskCode,
     BaseType_t err = -1;
     if (xTicksToWait == portMAX_DELAY)
     {
-        TickType_t end_tick = xTaskGetTickCount() +  xTicksToWait ;
-        while (xTaskGetTickCount() < end_tick )
+        while (true)
         {
             err = xTaskCreatePinnedToCore(pvTaskCode, pcName, usStackDepth, pvParameters, uxPriority, pvCreatedTask, xCoreID);
 
@@ -26,7 +25,9 @@ BaseType_t xTaskCreatePinnedToCore_WFH(TaskFunction_t pvTaskCode,
     }
     else
     {
-        while(true)
+        TickType_t start = xTaskGetTickCount();//TODO
+
+        while (xTaskGetTickCount() - start < xTicksToWait)
         {
             err = xTaskCreatePinnedToCore(pvTaskCode, pcName, usStackDepth, pvParameters, uxPriority, pvCreatedTask, xCoreID);
 
@@ -37,4 +38,16 @@ BaseType_t xTaskCreatePinnedToCore_WFH(TaskFunction_t pvTaskCode,
         }
     }
     return err;
+}
+
+BaseType_t xTaskCreate_WFH(
+    TaskFunction_t pvTaskCode,
+    const char *const pcName,
+    const uint32_t usStackDepth,
+    void *const pvParameters,
+    UBaseType_t uxPriority,
+    TaskHandle_t *const pvCreatedTask,
+    TickType_t xTicksToWait)
+{
+    return xTaskCreatePinnedToCore_WFH(pvTaskCode, pcName, usStackDepth, pvParameters, uxPriority, pvCreatedTask, tskNO_AFFINITY, xTicksToWait);
 }
