@@ -30,3 +30,11 @@ BaseType_t xReverseSemaphoreWaitForZero(ReverseSemaphoreHandle_t xSemaphore, Tic
 {
     return xEventGroupWaitBits(xSemaphore,MAX_REVERSE_SEMAPHORE_COUNT,pdFALSE,pdTRUE,xTicksToWait);
 }
+
+
+void xReverseSemaphoreDelete(ReverseSemaphoreHandle_t xSemaphore )
+{
+    vEventGroupDelete(xSemaphore);
+}   
+
+

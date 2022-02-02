@@ -57,4 +57,14 @@ BaseType_t xReverseSemaphoreDecrese(ReverseSemaphoreHandle_t xSemaphore );
  */
 BaseType_t xReverseSemaphoreWaitForZero(ReverseSemaphoreHandle_t xSemaphore, TickType_t xTicksToWait);
 
+
+/**
+ * @brief 
+ * 
+ * 
+ * 
+ * @param xSemaphore 
+ */
+void xReverseSemaphoreDelete(ReverseSemaphoreHandle_t xSemaphore );
+
 #endif
