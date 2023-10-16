@@ -46,6 +46,7 @@ BaseType_t xTaskCreatePinnedToCore_WFH(TaskFunction_t pvTaskCode,
  * @param usStackDepth
  * @param pvParameters
  * @param uxPriority
+ * @param taskHandle
  * @param xTicksToWait
  * @return BaseType_t
  *
